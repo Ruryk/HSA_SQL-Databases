@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  db:
+    build: .
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"  # Зміна порту на 3307
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  node-app:
+    build: ./node-app
+    container_name: node_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
