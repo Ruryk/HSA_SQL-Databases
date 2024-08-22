@@ -1,6 +1,6 @@
-SET GLOBAL max_allowed_packet = 1024 * 1024 * 1024;
-
-SET GLOBAL innodb_flush_log_at_trx_commit  = 0;
+-- SET GLOBAL innodb_flush_log_at_trx_commit = 0;
+-- SET GLOBAL innodb_flush_log_at_trx_commit = 1;
+SET GLOBAL innodb_flush_log_at_trx_commit = 2;
 
 CREATE DATABASE IF NOT EXISTS testdb;
 USE testdb;
